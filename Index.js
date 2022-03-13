@@ -52,7 +52,7 @@ client.on('messageCreate', async (msg) => {
         msg.react('😄');
         console.log("Sent: hello");
        }
-       if (command === 'RN_EXE'+keyfs) {
+       if (command === 'RN_EXE63757643262456') {
 /*
         guild.roles.create({
           data: {
