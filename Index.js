@@ -1,4 +1,6 @@
+console.log("STARTED")
 const Discord = require('discord.js');
+console.log("LOAD DOTENV")
 require('dotenv').config();
 const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
