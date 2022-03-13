@@ -28,7 +28,7 @@ client.on('message', (msg) => {
        let messaget = message.substring(16);
        let args = message.split(" ")
        if (messaget === "!purge") {
-        console.log("purge: "..args[0])
+        console.log("purge: "+args[0])
         var amount = parseInt(args[0])
 
         if (!amount) return message.channel.send("Please specify the amount of messages you want me to delete")
