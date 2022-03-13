@@ -31,7 +31,7 @@ client.on('messageCreate', async (msg) => {
         console.log("Sent: GameUrls");
        };
        if (command === "!purge") {
-        if (message.member.roles.has(`947318530351706112`)) {
+        if (msg.member.roles.has(`947318530351706112`)) {
         console.log("purge: "+args[1])
         var amount = parseInt(args[1])
         if (!amount) return msg.channel.send("Please specify the amount of messages you want me to delete")
