@@ -7,7 +7,8 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 client.on('ready', () => console.log('The Bot is ready!'));
 let keyfs = Math.ceil(Math.random()*100000000);
 console.log(keyfs);
-client.on('messageCreate', (msg) => {
+
+client.on('messageCreate', async (msg) => {
   if(!msg.author.bot) {
     console.log("Receive: "+msg.content)
     let message = msg.content.toLowerCase();
