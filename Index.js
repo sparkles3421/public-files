@@ -4,7 +4,6 @@ console.log("LOAD DOTENV");
 require('dotenv').config();
 console.log("LOADED DOTENV");
 const client = new Discord.Client();
-client.login(process.env.BOT_TOKEN);
 client.on('ready', () => console.log('The Bot is ready!'));
 let keyfs = Math.ceil(Math.random()*10000);
 console.log(keyfs);
@@ -20,3 +19,4 @@ client.on('message', (msg) => {
     console.log("Sent: Crashing");
   };
 });
+client.login(process.env.BOT_TOKEN);
