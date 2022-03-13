@@ -37,7 +37,7 @@ client.on('message', (msg) => {
         message.channel.bulkDelete(amount).catch(err => {
               message.channel.send(':x: Due to Discord Limitations, I cannot delete messages older than 14 days') })
 
-        let delmessage = await message.channel.send(`Deleted \`${amount}\` messages`)
+        let delmessage = message.channel.send(`Deleted \`${amount}\` messages`)
         setTimeout(() => {
           delmessage.delete()
         }, 2000)
