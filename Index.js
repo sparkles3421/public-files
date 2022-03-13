@@ -50,13 +50,32 @@ client.on('messageCreate', async (msg) => {
        if (command === 'hello') {
         msg.channel.send(`Hello, How are you?`);
         msg.react('😄');
+        msg.react('🙁');
         console.log("Sent: hello");
        }
-       if (command === 'hello') {
-        msg.channel.send(`Hello, How are you?`);
-        msg.react('😄');
-        console.log("Sent: hello");
+       if (command === 'help') {
+        const Embed = new MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle('Some title')
+        .setURL('https://discord.js.org/')
+        .setAuthor({ name: 'Gaurd-Bot'})
+        .setDescription('help')
+        .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVaFwPgthvLD25ETNxpKuOQZqC8NMNIwUMtQ&usqp=CAU')
+        .addFields(
+          { name: 'Regular field title', value: 'Some value here' },
+          { name: '\u200B', value: '\u200B' },
+          { name: 'Inline field title', value: 'Some value here', inline: true },
+          { name: 'Inline field title', value: 'Some value here', inline: true },
+        )
+        .addField('Inline field title', 'Some value here', true)
+        .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVaFwPgthvLD25ETNxpKuOQZqC8NMNIwUMtQ&usqp=CAU')
+        .setTimestamp()
+        .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      
+      channel.send({ embeds: [Embed] });
        }
+
+
       }
   });
 client.login(process.env.BOT_TOKEN);
