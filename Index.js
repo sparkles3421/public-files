@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 console.log("LOAD DOTENV");
 //require('dotenv').config();
 console.log("LOADED DOTENV");
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 client.on('ready', () => console.log('The Bot is ready!'));
 let keyfs = Math.ceil(Math.random()*10000);
 console.log(keyfs);
