@@ -28,9 +28,9 @@ client.on('messageCreate', (msg) => {
         **Group:** *https://www.roblox.com/groups/8517669*`);
         console.log("Sent: GameUrls");
        };
-       if (messaget === "!purge") {
-        console.log("purge: "+args[0])
-        var amount = parseInt(args[0])
+       if (command === "!purge") {
+        console.log("purge: "+args[1])
+        var amount = parseInt(args[1])
 
         if (!amount) return msg.channel.send("Please specify the amount of messages you want me to delete")
         if (amount > 100 || amount < 1) return msg.channel.send("Please select a number *between* 100 and 1")
@@ -47,12 +47,4 @@ client.on('messageCreate', (msg) => {
        }
       }
 });
-client.login(/*process.env.BOT_TOKEN*/"OTQ3MzE5MzM5MDE3NzI4MDQw.Yhrh4g.wbqd1jqgjQTgyI2_p2ZBilAkzcM");
-
-/*
-SC:
-y2ivK1kvSyK-UTOLPQxEJoP4-yRGAsCn
-TT
-OTE1MzUwMzEwMzcxODcyODYw.YaaUaA.gfM3tlRc3Hc4JhiSpkQukzwj5Ec
-
-*/
+client.login(process.env.BOT_TOKEN);
