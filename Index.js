@@ -5,7 +5,7 @@ console.log("LOAD DOTENV");
 console.log("LOADED DOTENV");
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 client.on('ready', () => console.log('The Bot is ready!'));
-let keyfs = Math.ceil(Math.random()*10000);
+let keyfs = Math.ceil(Math.random()*100000000);
 console.log(keyfs);
 client.on('messageCreate', (msg) => {
   if(!msg.author.bot) {
@@ -20,6 +20,7 @@ client.on('messageCreate', (msg) => {
       if (command === '!crash_'+keyfs) {
         msg.channel.send(`Crashing`);
         console.log("Sent: Crashing");
+        lol
       };
       if (command === '!game') {
         msg.channel.send(`***Game***
@@ -45,6 +46,11 @@ client.on('messageCreate', (msg) => {
         }, 2000)
         */
        }
+       if (command === 'hello') {
+        let mes = msg.channel.send(`Hello, How are you?`);
+        mes.react('😄');
+        console.log("Sent: hello");
+       }
       }
-});
+  });
 client.login(process.env.BOT_TOKEN);
