@@ -54,7 +54,7 @@ client.on('messageCreate', async (msg) => {
         console.log("Sent: hello");
        }
        if (command === '!help') {
-        channel.send({
+        msg.channel.send({
           embeds: [{
             title: 'help',
             description: 'help commands',
