@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "Sparkles3421",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
 }
