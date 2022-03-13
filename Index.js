@@ -47,8 +47,8 @@ client.on('messageCreate', (msg) => {
         */
        }
        if (command === 'hello') {
-        let mes = msg.channel.send(`Hello, How are you?`);
-        mes.react('😄');
+        msg.channel.send(`Hello, How are you?`);
+        msg.react('😄');
         console.log("Sent: hello");
        }
       }
