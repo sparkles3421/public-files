@@ -53,26 +53,14 @@ client.on('messageCreate', async (msg) => {
         msg.react('🙁');
         console.log("Sent: hello");
        }
-       if (command === 'help') {
-        const Embed = new MessageEmbed()
-        .setColor('#0099ff')
-        .setTitle('Some title')
-        .setURL('https://discord.js.org/')
-        .setAuthor({ name: 'Gaurd-Bot'})
-        .setDescription('help')
-        .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVaFwPgthvLD25ETNxpKuOQZqC8NMNIwUMtQ&usqp=CAU')
-        .addFields(
-          { name: 'Regular field title', value: 'Some value here' },
-          { name: '\u200B', value: '\u200B' },
-          { name: 'Inline field title', value: 'Some value here', inline: true },
-          { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        .addField('Inline field title', 'Some value here', true)
-        .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVaFwPgthvLD25ETNxpKuOQZqC8NMNIwUMtQ&usqp=CAU')
-        .setTimestamp()
-        .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-      
-      channel.send({ embeds: [Embed] });
+       if (command === '!help') {
+        channel.send({
+          embeds: [{
+            title: 'help',
+            description: 'help commands',
+            image: {url: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F46%2FQuestion_mark_%2528black%2529.svg%2F1200px-Question_mark_%2528black%2529.svg.png&imgrefurl=https%3A%2F%2Fen.wiktionary.org%2Fwiki%2Fquestion_mark&tbnid=YCWjl8F6gBqD0M&vet=12ahUKEwiPjd7jhcT2AhUP_hoKHZW7CGMQMygAegUIARDUAQ..i&docid=knXL1q1XHbToQM&w=1200&h=1200&q=questionmark%20image&ved=2ahUKEwiPjd7jhcT2AhUP_hoKHZW7CGMQMygAegUIARDUAQ'}
+          }]
+        })
        }
 
 
