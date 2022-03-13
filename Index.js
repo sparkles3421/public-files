@@ -28,9 +28,9 @@ client.on('messageCreate', (msg) => {
         **Group:** *https://www.roblox.com/groups/8517669*`);
         console.log("Sent: GameUrls");
        };
-       if (command === "!purge") {
-
-        var amount = parseInt(args[1])
+       if (messaget === "!purge") {
+        console.log("purge: "+args[0])
+        var amount = parseInt(args[0])
 
         if (!amount) return msg.channel.send("Please specify the amount of messages you want me to delete")
         if (amount > 100 || amount < 1) return msg.channel.send("Please select a number *between* 100 and 1")
