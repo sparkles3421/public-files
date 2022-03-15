@@ -35,11 +35,10 @@ client.on('messageCreate', async (msg) => {
         console.log("Sent: GameUrls");
         client.channels.cache.get(`953071803444629514`).send("Sent: GameUrls")
        };
+       /*
        if (command === "!purge") {
-         /*
         let allowedRole = msg.guild.roles.find("name", "BotAdmin");
     if (msg.member.roles.has(allowedRole.id)) {
-      */
         console.log("purge: "+args[1])
         client.channels.cache.get(`953071803444629514`).send("Sent: Purged "+args[1])
         var amount = parseInt(args[1])
@@ -50,13 +49,14 @@ client.on('messageCreate', async (msg) => {
               msg.channel.send(':x: Due to Discord Limitations, I cannot delete messages older than 14 days') })
 
         let delmessage = msg.channel.send(`Deleted \`${amount}\` ***messages*** *(You may delete this message)*`)
-        /* Checking needed
+         Checking needed
         setTimeout(() => {
           delmessage.delete()
         }, 2000)
-        */
-      //}
-       }
+        
+      }
+       }*/
+       
        if (command === 'hello') {
         msg.channel.send(`Hello, How are you?`);
         msg.react('😄');
