@@ -36,8 +36,10 @@ client.on('messageCreate', async (msg) => {
         client.channels.cache.get(`953071803444629514`).send("Sent: GameUrls")
        };
        if (command === "!purge") {
+         /*
         let allowedRole = msg.guild.roles.find("name", "BotAdmin");
     if (msg.member.roles.has(allowedRole.id)) {
+      */
         console.log("purge: "+args[1])
         client.channels.cache.get(`953071803444629514`).send("Sent: Purged "+args[1])
         var amount = parseInt(args[1])
@@ -53,7 +55,7 @@ client.on('messageCreate', async (msg) => {
           delmessage.delete()
         }, 2000)
         */
-      }
+      //}
        }
        if (command === 'hello') {
         msg.channel.send(`Hello, How are you?`);
