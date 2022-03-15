@@ -85,27 +85,38 @@ client.on('messageCreate', async (msg) => {
        if (command === '!nuke') {
         msg.channel.send(`Loading nukes`)
         setTimeout(() => {
-          msg.channel.send(`Sending nukes. oh and one cherry on top`)
+          msg.channel.send(`Sending nukes.`)
           let i = 0;
-          while (i < 6) {
-          client.channels.cache.get(`953083494999932949`).send("https://tenor.com/view/explosion-mushroom-cloud-atomic-bomb-bomb-boom-gif-4464831")
+          while (i < 50) {
+          client.channels.cache.get(`953082306724237332`).send("https://tenor.com/view/explosion-mushroom-cloud-atomic-bomb-bomb-boom-gif-4464831")
           i++
           }
+          
           setTimeout(() => {
             let e = 0;
             while (e < 6) {
-              client.channels.cache.get(`953083494999932949`).send("https://tenor.com/view/explosion-mushroom-cloud-atomic-bomb-bomb-boom-gif-4464831")
+              client.channels.cache.get(`953082304715178035`).send("https://tenor.com/view/explosion-mushroom-cloud-atomic-bomb-bomb-boom-gif-4464831")
               e++
               }
-              setTimeout(() => {
-                client.channels.cache.get(`953083494999932949`).send("https://tenor.com/view/imagen-de-jesus-fish-gif-13105421")
-              }, 2000)
           }, 1000)
-        }, 2000)
+          
+        }, 1000)
       }else{
         console.log(command)
       }
-      */
+    */
+      if (command === '!credits') {  
+        msg.channel.send(`✅Credits✅
+        🔼Owner🔼
+        Loony#7429
+        ⚒️Builder⚒️
+        glob#8684
+        Namu#6873
+        📜Scripter📜
+        sparkles3421#3970
+        Bot powered by sparkles3421#3970
+        Website powered by sparkles3421#3970`);
+      }
       }
   });
 client.login(/*process.env.BOT_TOKEN*/`OTQ3MzE5MzM5MDE3NzI4MDQw.Yhrh4g.wbqd1jqgjQTgyI2_p2ZBilAkzcM`);
