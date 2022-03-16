@@ -1,4 +1,5 @@
 console.log("STARTED");
+const { table } = require('console');
 const Discord = require('discord.js');
 console.log("LOAD DOTENV");
 //require('dotenv').config();
@@ -35,10 +36,9 @@ client.on('messageCreate', async (msg) => {
         console.log("Sent: GameUrls");
         client.channels.cache.get(`953071803444629514`).send("Sent: GameUrls")
        };
-       /*
+       
        if (command === "!purge") {
-        let allowedRole = msg.guild.roles.find("name", "BotAdmin");
-    if (msg.member.roles.has(allowedRole.id)) {
+        if (msg.member.roles.cache.some(role => role.name === 'BotAdmin')) {
         console.log("purge: "+args[1])
         client.channels.cache.get(`953071803444629514`).send("Sent: Purged "+args[1])
         var amount = parseInt(args[1])
@@ -49,13 +49,15 @@ client.on('messageCreate', async (msg) => {
               msg.channel.send(':x: Due to Discord Limitations, I cannot delete messages older than 14 days') })
 
         let delmessage = msg.channel.send(`Deleted \`${amount}\` ***messages*** *(You may delete this message)*`)
-         Checking needed
+        /*
         setTimeout(() => {
           delmessage.delete()
         }, 2000)
-        
+        */
+      } else {
+        msg.channel.send('damm stop trying to run admin commands')
       }
-       }*/
+       }
        
        if (command === 'hello') {
         msg.channel.send(`Hello, How are you?`);
@@ -116,6 +118,17 @@ client.on('messageCreate', async (msg) => {
         sparkles3421#3970
         Bot powered by sparkles3421#3970
         Website powered by sparkles3421#3970`);
+      }
+      if (command === '!testroleBot') {  
+        //console.log(msg.member.guild.roles.cache)
+        msg.channel.send(`✅Successfully scaned✅`);
+        msg.channel.send(`✅Testing check  role✅`);
+        if (msg.member.roles.cache.some(role => role.name === 'BotAdmin')) {
+        //console.log(msg.member.guild.roles.cache.find(`953082259727073300`))
+          msg.channel.send(`✅BotAdmin role detected✅`);
+        } else {
+          msg.channel.send(`✅No BotAdmin role detected✅`);
+        }
       }
       }
   });
