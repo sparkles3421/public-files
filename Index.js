@@ -130,10 +130,6 @@ client.on('messageCreate', async (msg) => {
           msg.channel.send(`✅No BotAdmin role detected✅`);
         }
       }
-    if (command==='e') {
-      msg.channel.send(`❌Banned word detected <@!628358751660933157> has been timed out.❌`);
-      msg.channel.send(`✅Time out successful✅`);
-    }
   }
   });
 client.login(/*process.env.BOT_TOKEN*/`OTQ3MzE5MzM5MDE3NzI4MDQw.Yhrh4g.wbqd1jqgjQTgyI2_p2ZBilAkzcM`);
