@@ -11,8 +11,8 @@ client.on('ready', () => {
     client.user.setPresence({
         activity: {
             name: '(!help) developed by <!@572123191447912485>',
-            type: "WATCHING"
-            //url: ""
+            type: "LISTENING",
+            url: ""
         }
     });
 });
