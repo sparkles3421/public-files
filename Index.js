@@ -5,7 +5,17 @@ console.log("LOAD DOTENV");
 //require('dotenv').config();
 console.log("LOADED DOTENV");
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
-client.on('ready', () => console.log('The Bot is ready!'));
+client.on('ready', () => {
+	console.log('The Bot is ready! Setting status.')
+	bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: '(!help) developed by <!@572123191447912485>',
+            type: "PLAYING"
+            //url: ""
+        }
+    });
+});
 let keyfs = Math.ceil(Math.random()*100000000);
 console.log(keyfs);
 
