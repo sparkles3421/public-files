@@ -9,7 +9,7 @@ client.on('ready', () => {
 	console.log('The Bot is ready! Setting status.')
 	client.user.setStatus('online')
     client.user.setPresence({
-        game: {
+        activity: {
             name: '(!help) developed by <!@572123191447912485>',
             type: "WATCHING"
             //url: ""
