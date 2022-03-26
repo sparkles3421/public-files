@@ -7,11 +7,11 @@ console.log("LOADED DOTENV");
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 client.on('ready', () => {
 	console.log('The Bot is ready! Setting status.')
-	client.user.setStatus('available')
+	client.user.setStatus('online')
     client.user.setPresence({
         game: {
             name: '(!help) developed by <!@572123191447912485>',
-            type: "PLAYING"
+            type: "WATCHING"
             //url: ""
         }
     });
