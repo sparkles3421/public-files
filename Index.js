@@ -8,13 +8,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 client.on('ready', () => {
 	console.log('The Bot is ready! Setting status.')
 	client.user.setStatus('online')
-    client.user.setPresence({
-        activity: {
-            name: '(!help) developed by <!@572123191447912485>',
-            type: "LISTENING",
-            url: ""
-        }
-    });
+    client.user.setActivity('"!help"', { type: 'PLAYING', url: '' });
 });
 let keyfs = Math.ceil(Math.random()*100000000);
 console.log(keyfs);
