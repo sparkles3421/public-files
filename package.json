@@ -11,6 +11,7 @@
   "author": "Sparkles3421",
   "license": "ISC",
   "dependencies": {
+    "@mfd/rbxdatastoreservice": "^2.3.10",
     "discord.js": "^13.6.0"
   }
 }
