@@ -150,6 +150,18 @@ client.on('messageCreate', async (msg) => {
         msg.channel.send('NP')
        }
       }
+      if (command === 'bricks') {
+        msg.channel.send({
+          embeds: [{
+            title: 'help',
+            description: '26/4/22 game stats:'+`
+            **Parts:** ***3894***
+            **Terrain Boxes:** ***8.32k***
+            **Scripts:** ***178***`,
+            image: {url: ''}
+          }]
+        })
+      }
        if (command === 'hello') {
         msg.channel.send(`Hello, How are you?`);
         msg.react('😄');
@@ -168,7 +180,8 @@ client.on('messageCreate', async (msg) => {
             !help - all commands
             !game - shows game url
             !test - checks bot servers
-            !ping - current ping`,
+            !ping - current ping
+            !bricks - displays game stats`,
             image: {url: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F46%2FQuestion_mark_%2528black%2529.svg%2F1200px-Question_mark_%2528black%2529.svg.png&imgrefurl=https%3A%2F%2Fen.wiktionary.org%2Fwiki%2Fquestion_mark&tbnid=YCWjl8F6gBqD0M&vet=12ahUKEwiPjd7jhcT2AhUP_hoKHZW7CGMQMygAegUIARDUAQ..i&docid=knXL1q1XHbToQM&w=1200&h=1200&q=questionmark%20image&ved=2ahUKEwiPjd7jhcT2AhUP_hoKHZW7CGMQMygAegUIARDUAQ'}
           }]
         })
