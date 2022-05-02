@@ -296,4 +296,4 @@ client.on('messageCreate', async (msg) => {
       }
   }
   });
-client.login(/*process.env.BOT_TOKEN*/`OTQ3MzE5MzM5MDE3NzI4MDQw.Yhrh4g.wbqd1jqgjQTgyI2_p2ZBilAkzcM`);
+client.login(process.env.BOT_TOKEN);
