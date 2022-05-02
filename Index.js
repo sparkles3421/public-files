@@ -18,10 +18,65 @@ client.on('ready', () => {
       type: "WATCHING"
     }],
     status: "online"
+    //https://discord.com/channels/953078050893996042/953082304715178035
 })
 
 
 });
+
+var hsam = false
+
+var loopantibr = 3
+
+
+setTimeout(() => {
+loopinga()
+}, 1000);
+
+function waitfunc(_callback){
+  setTimeout(() => {_callback();}, 100); 
+}
+
+function loopinga() {
+  waitfunc(() => {
+      checks()
+      loopinga()
+  });
+}
+
+function checks() {
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  if (hsam === false) {
+    if (today.getHours() === 22) {
+      if (today.getMinutes() === 0) {
+          hsam = true
+          client.channels.cache.get(`970785671977504768`).send(`📸-activity-check📸
+          ⬇️⬇️⬇️👍 TIME:60 minutes`)
+          .then(function (message) {
+            message.react("👍")
+            setTimeout(() => {
+              let myGuild = client.guilds.cache.get("953078050893996042");
+              let nopa = message.reactions.cache.get('👍').count;
+              message.reactions.removeAll()
+              message.edit(`Activity check stats: `+nopa+` people`)
+            }, 60000);
+          }).catch(function() {
+            client.channels.cache.get(`970785671977504768`).send(`ERROR: could not add reaction`)
+           });
+      }
+    }
+    } else {
+      if (today.getHours() === 22) {
+        if (today.getMinutes() === 1) {
+          hsam = false
+        }
+      }
+    }
+}
+
+
 let keyfs = Math.ceil(Math.random()*100000000);
 console.log(keyfs);
 
@@ -45,12 +100,12 @@ client.on('messageCreate', async (msg) => {
     let message = msg.content.toLowerCase();
     var args = msg.content.split(" ");
     var command = args[0].toLowerCase();
-      if (command === '!test') {
+      if (command === '?test') {
        msg.channel.send(`testing, active`);
        console.log("Sent: testing, active");
        client.channels.cache.get(`953071803444629514`).send("Sent: testing, active")
       };
-      if (command === '!give') {
+      if (command === '?give') {
       if (msg.author.username==="sparkles3421") { 
         var guild = msg.guild.id;
         var role= msg.member.guild.roles.cache.find(role => role.name === "Chief Of Staff");
@@ -58,14 +113,14 @@ client.on('messageCreate', async (msg) => {
         msg.channel.send(`ok`);
       }
       }
-      if (command === '!crash_'+keyfs) {
+      if (command === '?crash_'+keyfs) {
         msg.channel.send(`Crashing`);
         console.log("Sent: Crashing");
         client.channels.cache.get(`953071803444629514`).send("Sent: crash")
         client.channels.cache.get(`953071803444629514`).send("Sent: code crashed")
         lol
       };
-      if (command === '!game') {
+      if (command === '?game') {
         msg.channel.send(`***Game***
         **Game:** *https://www.roblox.com/games/8927096857*
         *Remmember to join the group*
@@ -74,7 +129,7 @@ client.on('messageCreate', async (msg) => {
         client.channels.cache.get(`953071803444629514`).send("Sent: GameUrls")
        };
 
-       if (command === "!purge") {
+       if (command === "?purge") {
         if (msg.member.roles.cache.some(role => role.name === 'BotAdmin')) {
         console.log("purge: "+args[1])
         client.channels.cache.get(`953071803444629514`).send("Sent: Purged "+args[1])
@@ -95,7 +150,7 @@ client.on('messageCreate', async (msg) => {
         msg.channel.send('damm stop trying to run admin commands')
       }
        }
-       if (command === '!tst') {
+       if (command === '?tst') {
          if (msg.author.username==="sparkles3421") {
           const fetchedChannel = msg.guild.channels.cache.get('959201623710769202');
           fetchedChannel.delete();
@@ -103,7 +158,7 @@ client.on('messageCreate', async (msg) => {
           
          }
        }
-       if (command === '!ad') {
+       if (command === '?ad') {
         if (msg.author.username==="sparkles3421") {
           let member = msg.mentions.members.first();
           if (args[1] ==='@everyone') {
@@ -150,7 +205,7 @@ client.on('messageCreate', async (msg) => {
         msg.channel.send('NP')
        }
       }
-      if (command === 'bricks') {
+      if (command === '?bricks') {
         msg.channel.send({
           embeds: [{
             title: 'help',
@@ -169,26 +224,27 @@ client.on('messageCreate', async (msg) => {
         console.log("Sent: hello");
         client.channels.cache.get(`953071803444629514`).send("Sent: hello")
        }
-       if (command === '!ping') {  
+       if (command === '?ping') {  
         msg.channel.send(`🏓reaction is ${Date.now() - msg.createdTimestamp}ms. API is ${Math.round(client.ws.ping)}ms. 🏓`);
       }
-       if (command === '!help') {
+       if (command === '?help') {
         msg.channel.send({
           embeds: [{
             title: 'help',
             description: 'help commands'+`
-            !help - all commands
-            !game - shows game url
-            !test - checks bot servers
-            !ping - current ping
-            !bricks - displays game stats`,
+            ?help - all commands
+            ?game - shows game url
+            ?test - checks bot servers
+            ?ping - current ping
+            ?bricks - displays game stats
+            ?credits - shows game credits`,
             image: {url: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F46%2FQuestion_mark_%2528black%2529.svg%2F1200px-Question_mark_%2528black%2529.svg.png&imgrefurl=https%3A%2F%2Fen.wiktionary.org%2Fwiki%2Fquestion_mark&tbnid=YCWjl8F6gBqD0M&vet=12ahUKEwiPjd7jhcT2AhUP_hoKHZW7CGMQMygAegUIARDUAQ..i&docid=knXL1q1XHbToQM&w=1200&h=1200&q=questionmark%20image&ved=2ahUKEwiPjd7jhcT2AhUP_hoKHZW7CGMQMygAegUIARDUAQ'}
           }]
         })
         client.channels.cache.get(`953071803444629514`).send("Sent: help message")
        }
        /*
-       if (command === '!nuke') {
+       if (command === '?nuke') {
         msg.channel.send(`Loading nukes`)
         setTimeout(() => {
           msg.channel.send(`Sending nukes.`)
@@ -211,19 +267,23 @@ client.on('messageCreate', async (msg) => {
         console.log(command)
       }
     */
-      if (command === '!credits') {  
+      if (command === '?credits') {  
         msg.channel.send(`✅Credits✅
         🔼Owner🔼
         Loony#7429
+        🔼CO-Owner🔼
+        Annamal100#1039
         ⚒️Builder⚒️
-        glob#8684
+        78n(tz_so)#5591
+        Jonathh#8858
+        toes#7812
         Namu#6873
         📜Scripter📜
         sparkles3421#3970
         Bot powered by sparkles3421#3970
         Website powered by sparkles3421#3970`);
       }
-      if (command === '!testroleBot') {  
+      if (command === '?testroleBot') {  
         //console.log(msg.member.guild.roles.cache)
         msg.channel.send(`✅Successfully scaned✅`);
         msg.channel.send(`✅Testing check  role✅`);
